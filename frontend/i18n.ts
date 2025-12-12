@@ -59,8 +59,8 @@ const resources = {
         step6Title: "How much variety would you like?",
         varietyHigh: "High Variety",
         varietyHighDesc: "Ideal if you like cooking different dishes every day",
-        varietyMed: "Moderate Variety",
-        varietyMedDesc: "Good if you like repeating dishes but want some variety",
+        varietyMedium: "Moderate Variety",
+        varietyMediumDesc: "Good if you like repeating dishes but want some variety",
         varietyLow: "Low Variety",
         varietyLowDesc: "Perfect for easier meal planning and shopping",
 
@@ -249,8 +249,8 @@ const resources = {
         step6Title: "¿Cuánta variedad te gustaría en tus comidas?",
         varietyHigh: "Mucha Variedad",
         varietyHighDesc: "Ideal si te gusta preparar diferentes platos cada día",
-        varietyMed: "Variedad Moderada",
-        varietyMedDesc: "Buena si te gusta repetir platos pero también quieres algo de variedad",
+        varietyMedium: "Variedad Moderada",
+        varietyMediumDesc: "Buena si te gusta repetir platos pero también quieres algo de variedad",
         varietyLow: "Poca Variedad",
         varietyLowDesc: "Perfecta para hacer más fácil la planificación de comidas",
 
