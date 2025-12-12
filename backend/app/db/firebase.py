@@ -17,8 +17,9 @@ def get_db():
              # Explicit credentials file (e.g. local dev without emulator but with key)
              cred = credentials.Certificate(settings.FIREBASE_CREDENTIALS_PATH)
              firebase_admin.initialize_app(cred)
-        else:
              # Production (Cloud Run) - Use Application Default Credentials (ADC)
              # Cloud Run injects the service account automatically.
              firebase_admin.initialize_app()
-    return firestore.client()
+    
+    # Connect to the specific database (default or named like 'fitia-prod')
+    return firestore.client(database=settings.FIREBASE_DATABASE_ID)
