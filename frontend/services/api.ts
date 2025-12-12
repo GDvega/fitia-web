@@ -2,7 +2,12 @@ import axios from 'axios';
 import { UserProfile, Goal, ActivityLevel, DayPlan, Gender, DietType, PreparationStyle, VarietyLevel, PlanningMode } from '../types';
 
 // Use environment variable for API URL (Production) or fallback to relative (Dev/Proxy)
-const API_URL = import.meta.env.VITE_API_URL || '/api/v1';
+let API_URL = import.meta.env.VITE_API_URL || '/api/v1';
+
+// Auto-fix: Ensure URL ends with /api/v1 if user forgot it
+if (API_URL.startsWith('http') && !API_URL.endsWith('/api/v1')) {
+    API_URL = API_URL.replace(/\/$/, '') + '/api/v1';
+}
 
 console.log("🔌 Connected to API:", API_URL); // Debug for Cloud Run logs
 
