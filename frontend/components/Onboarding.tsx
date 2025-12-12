@@ -499,24 +499,23 @@ const Onboarding: React.FC = () => {
   const [step, setStep] = useState(1);
   const totalSteps = 7;
 
-  // Initial default state hydrated from Store if available
-  const existingProfile = useUserStore((state) => state.userProfile);
+  // Initial default state
   const [formData, setFormData] = useState<Partial<UserProfile>>({
-    name: existingProfile?.name || '',
-    age: existingProfile?.age || 25,
-    gender: existingProfile?.gender || Gender.Female,
-    height: existingProfile?.height || 165,
-    weight: existingProfile?.weight || 70,
-    targetWeight: existingProfile?.targetWeight || 60,
-    activityLevel: existingProfile?.activityLevel || ActivityLevel.Moderate,
-    goal: existingProfile?.goal || Goal.LoseWeight,
-    dietType: existingProfile?.dietType || DietType.Balanced,
-    weightLossSpeed: existingProfile?.weightLossSpeed || WeightLossSpeed.Recommended,
-    mealsPerDay: existingProfile?.mealsPerDay || ['Breakfast', 'Lunch', 'Dinner'],
-    preparationStyle: existingProfile?.preparationStyle || PreparationStyle.Recipes,
-    varietyLevel: existingProfile?.varietyLevel || VarietyLevel.Medium,
-    availableFoods: existingProfile?.availableFoods || ['Chicken', 'Rice', 'Eggs', 'Avocado', 'Banana'],
-    planningMode: existingProfile?.planningMode || PlanningMode.Custom
+    name: '',
+    age: 25,
+    gender: Gender.Female,
+    height: 165,
+    weight: 70,
+    targetWeight: 60,
+    activityLevel: ActivityLevel.Moderate,
+    goal: Goal.LoseWeight,
+    dietType: DietType.Balanced,
+    weightLossSpeed: WeightLossSpeed.Recommended,
+    mealsPerDay: ['Breakfast', 'Lunch', 'Dinner'],
+    preparationStyle: PreparationStyle.Recipes,
+    varietyLevel: VarietyLevel.Medium,
+    availableFoods: ['Chicken', 'Rice', 'Eggs', 'Avocado', 'Banana'],
+    planningMode: PlanningMode.Custom
   });
 
   const handleNext = () => {

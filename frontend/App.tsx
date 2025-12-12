@@ -10,37 +10,6 @@ import LoginPage from './components/LoginPage';
 const App: React.FC = () => {
   const { userProfile, token, fetchUser, userId } = useUserStore();
 
-  // Safety: If we have a token but no profile (e.g. refresh), fetch it.
-  React.useEffect(() => {
-    if (token && !userProfile) {
-      let idToFetch = userId;
-
-      // Fallback: If userId is missing but token exists, try to decode it
-      if (!idToFetch) {
-        try {
-          const payload = JSON.parse(atob(token.split('.')[1]));
-          idToFetch = payload.sub;
-        } catch (e) {
-          console.error("Invalid token structure", e);
-          localStorage.removeItem('token');
-          window.location.reload();
-          return;
-        }
-      }
-
-      if (idToFetch) {
-        fetchUser(idToFetch).catch(e => {
-          console.error("Auto-fetch failed", e);
-          // If fetch fails (e.g. invalid token), logout to prevent stuck loading
-          if ((e as any).response?.status === 401) {
-            localStorage.removeItem('token');
-            window.location.reload();
-          }
-        });
-      }
-    }
-  }, [token, userProfile, userId, fetchUser]);
-
   return (
     <HashRouter>
       <Routes>
@@ -53,12 +22,7 @@ const App: React.FC = () => {
           path="/"
           element={
             token
-              ? (
-                // If we have a token but no profile yet, show loading (prevent flash of Onboarding)
-                !userProfile
-                  ? <div className="flex items-center justify-center h-screen bg-[#FAF9F4] text-gray-500">Loading profile...</div>
-                  : (userProfile.isOnboardingComplete ? <Navigate to="/dashboard" replace /> : <Onboarding />)
-              )
+              ? (userProfile?.isOnboardingComplete ? <Navigate to="/dashboard" replace /> : <Onboarding />)
               : <Navigate to="/login" replace />
           }
         />
