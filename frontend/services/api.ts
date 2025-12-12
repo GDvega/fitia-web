@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { UserProfile, Goal, ActivityLevel, DayPlan, Gender, DietType, PreparationStyle, VarietyLevel, PlanningMode } from '../types';
 
-// Use relative path so Vite proxy handles it
-const API_URL = '/api/v1';
+// Use environment variable for API URL (Production) or fallback to relative (Dev/Proxy)
+const API_URL = import.meta.env.VITE_API_URL || '/api/v1';
 
 const api = axios.create({
     baseURL: API_URL,
