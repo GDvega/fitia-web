@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+firebase-admin
+pydantic
+pydantic-settings
+python-dotenv
+httpx
+numpy
+pytest
+google-generativeai
+passlib[argon2]
+python-jose[cryptography]
+python-multipart
+google-auth
+google-genai

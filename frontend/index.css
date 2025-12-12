@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-fitia-green: #00D09C;
+  --color-fitia-greenLight: #E0F9F1;
+  --color-fitia-greenDark: #00A87E;
+  --color-fitia-orange: #FF844B;
+  --color-fitia-orangeLight: #FFF1EB;
+  --color-fitia-dark: #1E293B;
+  --color-fitia-gray: #F8FAFC;
+  --color-fitia-card: #FFFFFF;
+
+  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom base styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-fitia-gray);
+  color: var(--color-fitia-dark);
+}
+
+/* Enhancing Recharts tooltip */
+.recharts-default-tooltip {
+  border-radius: 12px !important;
+  box-shadow: var(--shadow-soft) !important;
+  border: none !important;
+}

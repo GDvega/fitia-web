@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: fitia-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - FIRESTORE_EMULATOR_HOST=firestore:8080
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - FIREBASE_CREDENTIALS_PATH=
+      - GCLOUD_PROJECT=fitia-demo
+      - GOOGLE_CLOUD_PROJECT=fitia-demo # Not needed in emulator mode usually, or mock it
+    depends_on:
+      - firestore
+    volumes:
+      - ./backend:/app # Hot reload for dev if we override command
+
+  frontend:
+    build:
+      context: ./frontend
+      target: builder
+    container_name: fitia-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_TARGET=http://backend:8000
+    command: npm run dev -- --host
+    depends_on:
+      - backend
+
+  firestore:
+    image: gcr.io/google.com/cloudsdktool/cloud-sdk:emulators
+    container_name: fitia-firestore
+    command: gcloud beta emulators firestore start --host-port=0.0.0.0:8080
+    ports:
+      - "8080:8080"
