@@ -8,6 +8,8 @@ import { UserProfile } from './types';
 import LoginPage from './components/LoginPage';
 
 const App: React.FC = () => {
+  const { userProfile, token, fetchUser, userId } = useUserStore();
+
   // Safety: If we have a token but no profile (e.g. refresh), fetch it.
   React.useEffect(() => {
     if (token && !userProfile && userId) {
