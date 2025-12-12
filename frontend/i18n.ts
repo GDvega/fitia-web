@@ -20,6 +20,11 @@ const resources = {
         ok: "OK"
       },
       onboarding: {
+        nameLabel: "Name",
+        weightLabel: "Weight (kg)",
+        heightLabel: "Height (cm)",
+        goalTitle: "Goal",
+        activityTitle: "Activity Level",
         step1Title: "How do you want to achieve it?",
         step1Option1: "I need a nutrition plan",
         step1Desc1: "I don't know what to eat. I need meal suggestions.",
@@ -109,6 +114,15 @@ const resources = {
         MODERATE: "Moderately Active",
         VERY_ACTIVE: "Very Active",
 
+        // Exact string matches for Enums
+        "Lose Weight": "Lose Weight",
+        "Maintain Weight": "Maintain Weight",
+        "Gain Muscle": "Gain Muscle",
+        "Sedentary": "Sedentary",
+        "Lightly Active": "Lightly Active",
+        "Moderately Active": "Moderately Active",
+        "Very Active": "Very Active",
+
         Balanced: "Recommended / Balanced",
         Balanced_DESC: "Optimal mix of protein, carbs and fats",
         "High Protein": "High Protein",
@@ -195,11 +209,12 @@ const resources = {
         logout: "Cerrar Sesión",
         ok: "OK"
       },
-      // ... (onboarding and dashboard kept implicitly, I should be careful not to overwrite them if I don't include them)
-      // I am using replace_file_content on a block, I need to include EVERYTHING in that block or match a specific subset.
-      // The snippet covers 'enums' to end of 'es'.
-      // I'll be careful.
       onboarding: {
+        nameLabel: "Nombre",
+        weightLabel: "Peso (kg)",
+        heightLabel: "Altura (cm)",
+        goalTitle: "Objetivo",
+        activityTitle: "Nivel de Actividad",
         step1Title: "¿Cómo deseas conseguirlo?",
         step1Option1: "Necesito un plan nutricional",
         step1Desc1: "No sé qué comer. Necesito sugerencias de comidas",
@@ -288,6 +303,15 @@ const resources = {
         MODERATE: "Moderadamente Activo",
         VERY_ACTIVE: "Muy Activo",
 
+        // Exact string matches because types.ts strings differ from above keys
+        "Lose Weight": "Perder Peso",
+        "Maintain Weight": "Mantener Peso",
+        "Gain Muscle": "Ganar Músculo",
+        "Sedentary": "Sedentario",
+        "Lightly Active": "Ligeramente Activo",
+        "Moderately Active": "Moderadamente Activo",
+        "Very Active": "Muy Activo",
+
         Balanced: "Recomendada",
         Balanced_DESC: "La mejor para ti. Mezcla óptima de proteínas, carbohidratos y grasas",
         "High Protein": "Alta en Proteínas",
@@ -300,7 +324,6 @@ const resources = {
         "Low Fat_DESC": "Menos grasas, más carbohidratos y proteínas moderadas",
         Vegan: "Vegana",
         Vegan_DESC: "Solo alimentos de origen vegetal",
-
         Breakfast: "Desayuno",
         Lunch: "Almuerzo",
         Dinner: "Cena",
